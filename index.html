@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Virtual Herbal Garden</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+
+    /* Header and Navbar */
+    header {
+      background-color: #000000;
+      color: rgb(167, 255, 36);
+      padding: 1rem 2rem;
+      font-family:'Times New Roman', Times, serif;
+      font-size: 5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    nav {
+      background: white;
+      display: flex;
+      justify-content: flex-end;
+      padding: 0.8rem 1.5rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      position:relative;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav input {
+      padding: 8px 12px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      width: 250px;
+      font-size: 16px;
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 30px;
+      padding: 30px;
+      justify-content: center;
+    }
+
+    .card {
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      color: #2e7d32;
+    }
+
+    .card p {
+      font-size: 15px;
+      color: #444;
+      min-height: 60px;
+    }
+
+    .card .btn {
+      margin-top: 10px;
+      display: inline-block;
+      padding: 8px 14px;
+      background-color: #2e7d32;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .card .btn:hover {
+      background-color: #256027;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color: white;
+      margin: 8% auto;
+      padding: 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 10px #333;
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: red;
+    }
+
+    footer {
+      background-color: #2e7d32;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <header align="center">Virtual Herbal Garden</header>
+  <pre><p style="font-size: 50px;">        Welcome to Virtual Herbal Garden</p></pre>
+
+  <nav>
+    <input type="text" id="searchInput" placeholder="Search for a plant..." onkeyup="filterCards()">
+  </nav>
+
+  <div class="card-container" id="plantCards">
+
+    <!-- Plant Card Template (copy-pasteable) -->
+    <div class="card" data-name="Tulsi">
+      <img src="basil.webp" alt="Tulsi">
+      <div class="card-content">
+        <h3>Tulsi</h3>
+        <p>Known for its anti-inflammatory, antiviral, and antioxidant properties.</p>
+        <a href="https://en.wikipedia.org/wiki/Ocimum_tenuiflorum" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card" data-name="Neem">
+      <img src="neem.jpg" alt="Neem">
+      <div class="card-content">
+        <h3>Neem</h3>
+        <p>Powerful herb for skin treatments with antibacterial properties.</p>
+        <a href="https://en.wikipedia.org/wiki/Azadirachta_indica" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card" data-name="Ashwagandha">
+      <img src="ashvagandha.jpg" alt="Ashwagandha">
+      <div class="card-content">
+        <h3>Ashwagandha</h3>
+        <p>Adaptogen that helps relieve stress and increase energy.</p>
+        <a href="https://en.wikipedia.org/wiki/Withania_somnifera" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card" data-name="Aloe Vera">
+      <img src="Alovera-plant.jpeg" alt="Aloe Vera">
+      <div class="card-content">
+        <h3>Aloe Vera</h3>
+        <p>Used for burns and skin healing with soothing properties.</p>
+        <a href="https://en.wikipedia.org/wiki/Aloe_vera" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card" data-name="Brahmi">
+      <img src="brahmi.jpg" alt="Brahmi">
+      <div class="card-content">
+        <h3>Brahmi</h3>
+        <p>Enhances memory and reduces anxiety. Used in Ayurveda.</p>
+        <a href="https://en.wikipedia.org/wiki/Bacopa_monnieri" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+    <div class="card" data-name="Giloy">
+      <img src="giloy.jpg" alt="Giloy">
+      <div class="card-content">
+        <h3>Giloy</h3>
+        <p>Boosts immunity and treats fever. Widely used in Ayurveda.</p>
+        <a href="https://en.wikipedia.org/wiki/Tinospora_cordifolia" target="_blank" class="btn">Learn More</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Virtual Herbal Garden. All rights reserved.<br>
+    Made by Team G2X
+  </footer>
+
+  <script>
+    // Filter cards by search input
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        const name = card.getAttribute('data-name').toLowerCase();
+        card.style.display = name.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
