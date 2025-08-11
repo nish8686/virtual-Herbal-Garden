@@ -82,9 +82,13 @@
 .plant-card {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 12px;
-    width: 350px;
+    width: 359px;
     padding: 20px;
     text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start with content on top */
+    height: 100%; /* Make cards equal height */
 }
 
 .plant-card img {
@@ -93,7 +97,9 @@
 }
 
 .btn-group {
-    margin-top: 10px;
+    margin-top: auto; /* Push buttons to the bottom */
+    display: flex;
+    gap: 10px;
 }
 
 .btn-group button {
@@ -111,5 +117,18 @@ footer {
     color: white;
     position: relative; /* or fixed if you want it always at bottom */
     bottom: 0;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Start with content on top */
+    height: 100%; /* Make cards equal height */
+}
+
+.card-buttons {
+    margin-top: auto; /* Push buttons to the bottom */
+    display: flex;
+    gap: 10px;
 }
 
