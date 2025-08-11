@@ -132,3 +132,39 @@ footer {
     gap: 10px;
 }
 
+.card-icon {
+    padding-top: 100px;
+    margin-top: 100px;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.icon-buttons {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    display: flex;
+    gap: 5px;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
