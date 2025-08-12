@@ -103,6 +103,10 @@
 }
 
 .btn-group button {
+    border:none;
+    color: white;
+   background-color: rgb(204, 204, 205);
+    border-radius:4px;
     padding: 4px 8px;
     margin: 15px;
     cursor: pointer;
@@ -168,3 +172,4 @@ footer {
 .icon-btn:hover {
     background: rgba(255, 255, 255, 0.9);
 }
+
