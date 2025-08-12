@@ -73,7 +73,7 @@
 /* Plant Cards */
 .plant-grid {
     display: flex;
-    justify-content: center;
+    justify-content: left;
     flex-wrap: wrap;
     gap: 100px;
     padding: 40px;
@@ -172,4 +172,5 @@ footer {
 .icon-btn:hover {
     background: rgba(255, 255, 255, 0.9);
 }
+
 
